@@ -1,0 +1,52 @@
+using Microsoft.EntityFrameworkCore;
+
+namespace FlowerSalesAPI.Models
+{
+    public static class ModelBuilderExtentions
+    {
+        public static void Seed(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Bouquets" },
+                new Category { Id = 2, Name = "Box Flowers" },
+                new Category { Id = 3, Name = "Wraps" },
+                new Category { Id = 4, Name = "Single Flower" },
+                new Category { Id = 5, Name = "Additional" });
+
+            modelBuilder.Entity<Product>().HasData(
+                new Product { Id = 1, Category = "Bouquets", Name = "Flowers in the city", StoreLocation = "Canning Vale", PostCode = 6155, Price = 68, IsAvailable = true },
+                new Product { Id = 2, Category = "Bouquets", Name = "Gerberas", StoreLocation = "Willetton", PostCode = 6155, Price = 35, IsAvailable = true },
+                new Product { Id = 3, Category = "Bouquets", Name = "Asiatic Lilies", StoreLocation = "Palmyra", PostCode = 6123, Price = 33, IsAvailable = true },
+                new Product { Id = 4, Category = "Bouquets", Name = "European Lilies", StoreLocation = "Melville", PostCode = 6145, Price = 125, IsAvailable = true },
+                new Product { Id = 5, Category = "Bouquets", Name = "Chrysanthemum", StoreLocation = "Cannington", PostCode = 6112, Price = 60, IsAvailable = true },
+                new Product { Id = 6, Category = "Bouquets", Name = "Alstroemeria", StoreLocation = "Waikiki", PostCode = 6112, Price = 95, IsAvailable = true },
+                new Product { Id = 7, Category = "Bouquets", Name = "Snapdragon small", StoreLocation = "Tuart Hill", PostCode = 6112, Price = 65, IsAvailable = true },
+                new Product { Id = 8, Category = "Bouquets", Name = "V-Crocus", StoreLocation = "Willetton", PostCode = 6113, Price = 65, IsAvailable = true },
+                new Product { Id = 9, Category = "Bouquets", Name = "Crocus", StoreLocation = "Armadale", PostCode = 6114, Price = 17, IsAvailable = true },
+                new Product { Id = 10, Category = "Box Flowers", Name = "Calla Lily", StoreLocation = "Aubin Grove", PostCode = 6115, Price = 99, IsAvailable = true },
+                new Product { Id = 11, Category = "Box Flowers", Name = "Geranium small", StoreLocation = "Darch", PostCode = 6116, Price = 0, IsAvailable = false },
+                new Product { Id = 12, Category = "Box Flowers", Name = "Grunge Skater Jeans", StoreLocation = "Joondanna", PostCode = 6117, Price = 68, IsAvailable = true },
+                new Product { Id = 13, Category = "Box Flowers", Name = "Geranium Large", StoreLocation = "Joondalup", PostCode = 6112, Price = 125, IsAvailable = true },
+                new Product { Id = 14, Category = "Box Flowers", Name = "Stretchy Dance Pants", StoreLocation = "Geraldton", PostCode = 6118, Price = 55, IsAvailable = true },
+                new Product { Id = 15, Category = "Box Flowers", Name = "Alstroemeria", StoreLocation = "Piara Waters", PostCode = 6121, Price = 22, IsAvailable = false },
+                new Product { Id = 16, Category = "Box Flowers", Name = "Gerberas", StoreLocation = "Byford", PostCode = 6132, Price = 95, IsAvailable = true },
+                new Product { Id = 17, Category = "Box Flowers", Name = "Marigold", StoreLocation = "Dianella", PostCode = 6342, Price = 17, IsAvailable = true },
+                new Product { Id = 18, Category = "Wraps", Name = "Azalea", StoreLocation = "Leong", PostCode = 6123, Price = 2.8M, IsAvailable = true },
+                new Product { Id = 19, Category = "Wraps", Name = "Lemon-LAzalea", StoreLocation = "Fremantle", PostCode = 6124, Price = 2.8M, IsAvailable = true },
+                new Product { Id = 20, Category = "Wraps", Name = "Zinnia", StoreLocation = "Beaconsfield", PostCode = 6125, Price = 2.8M, IsAvailable = false },
+                new Product { Id = 21, Category = "Wraps", Name = "Peach Zinnia", StoreLocation = "North Freo", PostCode = 6126, Price = 2.8M, IsAvailable = true },
+                new Product { Id = 22, Category = "Wraps", Name = "Raspberry Zinnia", StoreLocation = "Munster", PostCode = 6127, Price = 2.8M, IsAvailable = true },
+                new Product { Id = 23, Category = "Wraps", Name = "Snapdragon big", StoreLocation = "Coogee", PostCode = 6128, Price = 2.8M, IsAvailable = true },
+                new Product { Id = 24, Category = "Single Flower", Name = "Petunia", StoreLocation = "South Freo", PostCode = 6129, Price = 24.99M, IsAvailable = true },
+                new Product { Id = 25, Category = "Additional", Name = "Dahlia (long lasting)", StoreLocation = "City", PostCode = 6112, Price = 9.99M, IsAvailable = true },
+                new Product { Id = 26, Category = "Additional", Name = "Dahlia", StoreLocation = "West Perth", PostCode = 6130, Price = 12.49M, IsAvailable = true },
+                new Product { Id = 27, Category = "Additional", Name = "Orchid domestic", StoreLocation = "East Perth", PostCode = 6131, Price = 13.99M, IsAvailable = true },
+                new Product { Id = 28, Category = "Additional", Name = "Orchid Expensive", StoreLocation = "Bentley", PostCode = 6132, Price = 12.49M, IsAvailable = true },
+                new Product { Id = 29, Category = "Additional", Name = "Marigold", StoreLocation = "Carlisle", PostCode = 6133, Price = 9.99M, IsAvailable = true },
+                new Product { Id = 30, Category = "Additional", Name = "Gardenia type-C", StoreLocation = "Lathlain", PostCode = 6134, Price = 11.99M, IsAvailable = true },
+                new Product { Id = 31, Category = "Additional", Name = "Gardenia type-B", StoreLocation = "Booragoon", PostCode = 6135, Price = 12.99M, IsAvailable = true },
+                new Product { Id = 32, Category = "Additional", Name = "Gardenia", StoreLocation = "Applecross", PostCode = 6136, Price = 9.99M, IsAvailable = true },
+                new Product { Id = 33, Category = "Additional", Name = "Calla Lily", StoreLocation = "Rockingham", PostCode = 6169, Price = 12.49M, IsAvailable = true });
+        }
+    }
+}

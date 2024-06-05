@@ -1,0 +1,67 @@
+[HttpGet]
+public async Task<ActionResult<Product>> Get(string name)
+{
+    var product = await _flowerService.GetAsync(name);
+    
+    if (product is null)
+    {
+        return NotFound();
+    }
+    return Ok(product);
+}
+
+[HttpPost]
+public async Task<ActionResult> Post(Product newProduct)
+{
+    await _flowerService.CreateAsync(newProduct);
+
+    return CreatedAtAction(nameof(Get), new { id = (newProduct.Id) }, newProduct);
+}
+
+[HttpPut("{id:length(24)}")]
+public async Task<IActionResult> Update(string id, Product updatedProduct)
+{
+    var product = await _flowerService.GetAsync(id);
+
+    if (product is null)
+    {
+        return NotFound();
+    }
+
+    updatedProduct.Id = product.Id;
+
+    await _flowerService.UpdateAsync(id, updatedProduct);
+
+    return NoContent();
+}
+
+[HttpDelete("{id:length(24)}")]
+public async Task<IActionResult> Delete(string id)
+{
+    var product = await _flowerService.GetAsync(id);
+
+    if (product is null)
+    {
+        return NotFound();
+    }
+
+    await _flowerService.RemoveAsync(id);
+
+    return NoContent();
+}
+
+[HttpGet]
+public async Task<List<Product>> GetAllProducts([FromQuery] ProductParametersQuery queryParameters)
+{
+    var product = await _flowerService.GetAsync();
+    var filter = Builders<Product>.Filter.Empty;
+
+    if (queryParameters.MinPrice != null)
+    {
+        filter &= Builders<Product>.Filter.Gte(p => p.Price, queryParameters.MinPrice.Value);
+    }
+
+    var products = await 
+
+    return Ok(products);
+}
